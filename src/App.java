@@ -2,13 +2,33 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeSet;
 
-import controllers.MaquinaController;
+import controller.MaquinaController;
 import models.Maquina;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        List<Maquina> maquinas = crearMaquinas();
+        MaquinaController controlador=new MaquinaController();
+        Maquina m = new Maquina("Nodo99", "10.0.180.15", Arrays.asList(10, 15, 20));
+        System.out.println((m));
+        System.out.println(m.getSubred());
+        List<Maquina> maquinas =crearMaquinas();
+        Stack<Maquina> maquinasOrdenadas = controlador.filtrarPorSubred(maquinas, 150);
+        for(int i=0;i<=maquinas.size();i++){
+            if(maquinasOrdenadas.isEmpty()){
+                System.out.print(" ");
+            }else{
+                System.out.println(maquinasOrdenadas.pop());
+            }
+            
+        }
+         System.out.println("Ejercicio2");
+      
+
+
+
+
 
     }
 
@@ -69,3 +89,12 @@ public class App {
 
     }
 }
+
+
+
+
+
+
+
+
+
